@@ -91,3 +91,121 @@ console.log(b);
 b = 123;
 console.log(b);
 */
+
+//  Episode 7 : The Scope Chain, Scope & LexicalEnvironment
+/*
+function a() {
+  console.log(b);
+}
+var b = 10;
+a();
+*/
+
+/*
+function a() {
+  c();
+  function c() {
+    console.log(b);
+  }
+}
+var b = 10;
+a();
+*/
+
+/*
+function a() {
+  c();
+  function c() {
+    var b = 100;
+    console.log(b);
+  }
+}
+
+var b = 10;
+a();
+*/
+
+/*
+function a() {
+  var b = 10;
+  c();
+  function c() {
+    console.log(b);
+  }
+}
+a();
+console.log(b);
+*/
+
+// Episode 8 : let & const in JS, Temporal Dead Zone
+
+// console.log(a);
+// console.log(b);
+// let a = 10;
+// console.log(a);
+// var b = 15;
+// console.log(global.a);
+// console.log(b);
+
+// let a = 10;
+// var a = 100;
+
+// let a;
+// a = 10;
+// console.log(a);
+
+// const b = 20;
+// b = 100;
+// console.log(b);
+
+// Episode 9 : Block Scope & Shadowing in JS
+
+// {
+//   var a = 10;
+//   let b = 20;
+//   const c = 30;
+//   console.log(b);
+//   console.log(c);
+// }
+// console.log(a);
+
+// var a = 100;
+// {
+//   var a = 10;
+//   let b = 20;
+//   const c = 30;
+//   console.log(a);
+//   console.log(b);
+//   console.log(c);
+// }
+
+// console.log(a);
+
+// let b = 100;
+// {
+//   var a = 10;
+//   let b = 20;
+//   const c = 30;
+//   console.log(b);
+// }
+// console.log(b);
+
+// const c = 100;
+// function x() {
+//   const c = 10;
+//   console.log(c);
+//   // 10
+// }
+// x();
+// console.log(c);
+// // 100
+
+//
+
+// let a = 20;
+// function x() {
+//   var a = 30;
+//   console.log(a);
+// }
+// x();
+// console.log(a);
