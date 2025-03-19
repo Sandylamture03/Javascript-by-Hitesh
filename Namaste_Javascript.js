@@ -209,3 +209,40 @@ console.log(b);
 // }
 // x();
 // console.log(a);
+
+// Episode 10 : Closures in JS
+
+//
+// function z() {
+//   var b = 900;
+//   function x() {
+//     var a = 7;
+//     function y() {
+//       console.log(b, a);
+//     }
+//     y();
+//   }
+//   x();
+// }
+// z();
+
+// Episode 11 : setTimeout + Closures InterviewQuestion
+
+//
+
+//
+
+// function x() {
+//   for (var i = 1; i <= 5; i++) {
+//     function close(i) {
+//       setTimeout(() => {
+//         console.log(i);
+//       }, i * 1000);
+//     }
+//     close(i);
+//   }
+//   console.log("Namaste Sandeep");
+// }
+// x();
+
+//  Episode 12 : Famous Interview Questions ft. Closures
