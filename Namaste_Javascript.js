@@ -246,3 +246,76 @@ console.log(b);
 // x();
 
 //  Episode 12 : Famous Interview Questions ft. Closures
+
+// function outer() {
+//   var a = 10;
+//   function inner() {
+//     console.log(a);
+//   }
+//   inner();
+// }
+// outer();
+
+// function outer() {
+//   function inner() {
+//     console.log(a);
+//   }
+//   var a = 10;
+//   inner();
+// }
+// outer();
+
+// function outer() {
+//   function inner() {
+//     console.log(a);
+//   }
+//   let a = 10;
+//   inner();
+// }
+// outer();
+
+// function outer(str) {
+//   let a = 10;
+//   function inner() {
+//     console.log(a, str);
+//   }
+//   return inner;
+// }
+// outer("hello pntu")();
+
+//
+// function counter() {
+//   let count = 0;
+//   return function increment() {
+//     count++;
+//     console.log(count);
+//   };
+// }
+// let counter1 = counter();
+// counter1();
+
+// let counter2 = counter();
+// counter2();
+
+function Counter() {
+  let count = 0;
+  this.incrementCounter = function () {
+    count++;
+    console.log(count);
+  };
+  this.decrementCounter = function () {
+    count--;
+    console.log(count);
+  };
+}
+let counter1 = new Counter();
+counter1.incrementCounter();
+counter1.incrementCounter();
+counter1.incrementCounter();
+
+let counter2 = new Counter();
+counter2.decrementCounter();
+counter2.incrementCounter();
+counter2.incrementCounter();
+counter2.incrementCounter();
+counter2.decrementCounter();
