@@ -297,25 +297,26 @@ console.log(b);
 // let counter2 = counter();
 // counter2();
 
-function Counter() {
-  let count = 0;
-  this.incrementCounter = function () {
-    count++;
-    console.log(count);
-  };
-  this.decrementCounter = function () {
-    count--;
-    console.log(count);
-  };
-}
-let counter1 = new Counter();
-counter1.incrementCounter();
-counter1.incrementCounter();
-counter1.incrementCounter();
+//
+// var b = function (param1, param2) {
+//   // labels/identifiers are parameters
+//   console.log(param1, param2);
+// };
+// b("arg1", "arg2");
+// //
 
-let counter2 = new Counter();
-counter2.decrementCounter();
-counter2.incrementCounter();
-counter2.incrementCounter();
-counter2.incrementCounter();
-counter2.decrementCounter();
+// var b = function (param1) {
+//   console.log(param1);
+// };
+// b(function () {});
+
+// var b = function (param1) {
+//   console.log(param1);
+// };
+// function xyz() {}
+// b(xyz);
+
+// var b = function (param1) {
+//   return function () {};
+// };
+// console.log(b());
