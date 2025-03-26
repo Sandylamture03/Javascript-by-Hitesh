@@ -320,3 +320,41 @@ console.log(b);
 //   return function () {};
 // };
 // console.log(b());
+
+//  Episode 14 : Callback Functions in JS ft. EventListeners
+
+// setTimeout(function () {
+//   console.log("timer");
+// }, 5000);
+
+// function x(y) {
+//   console.log("x");
+//   y();
+// }
+// x(function y() {
+//   console.log("y");
+// });
+
+// function printStr(str, cb) {
+//   setTimeout(() => {
+//     console.log(str);
+//     cb();
+//   }, Math.floor(Math.random() * 100) + 1);
+// }
+// function printAll() {
+//   printStr("A", () => {
+//     printStr("B", () => {
+//       printStr("C", () => {});
+//     });
+//   });
+// }
+// printAll();
+// function attachEventList() {
+//   let count = 0;
+//   document.getElementById("onClick").addEventListener("click", function xyz() {
+//     console.log("button Clicked", ++count);
+//   });
+// }
+// attachEventList();
+
+//   Episode 15 : Asynchronous JavaScript & EVENT LOOPfrom scratch
