@@ -358,3 +358,27 @@ console.log(b);
 // attachEventList();
 
 //   Episode 15 : Asynchronous JavaScript & EVENT LOOPfrom scratch
+
+// console.log("start");
+// setTimeout(function cb() {
+//   console.log("timer");
+// }, 5000);
+// console.log("end");
+
+// console.log("start");
+// document.getElementById("clicked").addEventListener("click", function cb() {
+//   console.log("callback");
+// });
+// console.log("End");
+
+// console.log("Start");
+// setTimeout(function fbT() {
+//   console.log("CB Timeout");
+// }, 5000);
+
+// fetch("https://api.netflix.com").then(function cbf() {
+//   console.log("CB Netflix");
+// });
+// console.log("End");
+
+//   Episode 17 : Trust issues with setTimeout()
