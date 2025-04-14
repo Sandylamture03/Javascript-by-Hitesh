@@ -382,3 +382,78 @@ console.log(b);
 // console.log("End");
 
 //   Episode 17 : Trust issues with setTimeout()
+
+// console.log("Start");
+// setTimeout(function cb() {
+//   console.log("call back");
+// }, 5000);
+// console.log("end");
+// let startDate = new Date().getTime();
+// let endDate = startDate;
+// while (endDate < startDate + 10000) {
+//   endDate = new Date().getTime();
+// }
+// console.log("while expires");
+
+//  to calculate area
+
+// let radious = [1, 2, 3, 4];
+// let calculateArea = function (radious) {
+//   let output = [];
+//   for (let i = 0; i < radious.length; i++) {
+//     output.push(Math.PI * radious[i] * radious[i]);
+//   }
+//   return output;
+// };
+// console.log(calculateArea(radious));
+
+// to calculate array of circumference
+
+// let radious = [1, 2, 3, 4];
+// let calculateCircum = function (radious) {
+//   let output = [];
+//   for (i = 0; i < radious.length; i++) {
+//     output.push(2 * Math.PI * radious[i]);
+//   }
+//   return output;
+// };
+// console.log(calculateCircum(radious));
+
+//  to Calculate Diameter
+
+// let radious = [1, 2, 3, 4];
+// let calculateDiameter = function (radious) {
+//   let output = [];
+//   for (i = 0; i < radious.length; i++) {
+//     output.push(2 * radious[i]);
+//   }
+//   return output;
+// };
+// console.log(calculateDiameter(radious));
+
+let radious = [1, 2, 3, 4];
+
+let area = function (radious) {
+  return Math.PI * radious * radious;
+};
+
+let circumference = function (radious) {
+  return 2 * Math.PI * radious;
+};
+
+let diameter = function (radious) {
+  return 2 * radious;
+};
+
+let calculate = function (radious, logic) {
+  let output = [];
+  for (i = 0; i < radious.length; i++) {
+    output.push(logic(radious[i]));
+  }
+  return output;
+};
+
+console.log(calculate(radious, area));
+console.log(radious.map(area));
+// console.log(calculate(radious, diameter));
+// console.log(calculate(radious, circumference));
