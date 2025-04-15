@@ -431,29 +431,152 @@ console.log(b);
 // };
 // console.log(calculateDiameter(radious));
 
-let radious = [1, 2, 3, 4];
+// let radious = [1, 2, 3, 4];
 
-let area = function (radious) {
-  return Math.PI * radious * radious;
-};
+// let area = function (radious) {
+//   return Math.PI * radious * radious;
+// };
 
-let circumference = function (radious) {
-  return 2 * Math.PI * radious;
-};
+// let circumference = function (radious) {
+//   return 2 * Math.PI * radious;
+// };
 
-let diameter = function (radious) {
-  return 2 * radious;
-};
+// let diameter = function (radious) {
+//   return 2 * radious;
+// };
 
-let calculate = function (radious, logic) {
-  let output = [];
-  for (i = 0; i < radious.length; i++) {
-    output.push(logic(radious[i]));
-  }
-  return output;
-};
+// let calculate = function (radious, logic) {
+//   let output = [];
+//   for (i = 0; i < radious.length; i++) {
+//     output.push(logic(radious[i]));
+//   }
+//   return output;
+// };
 
-console.log(calculate(radious, area));
-console.log(radious.map(area));
+// console.log(calculate(radious, area));
+// console.log(radious.map(area));
 // console.log(calculate(radious, diameter));
 // console.log(calculate(radious, circumference));
+
+//  Episode 19 : map, filter & reduce
+
+// let arr = [5, 1, 3, 2, 6];
+// function double(x) {
+//   return x * 2;
+// }
+// let doubledArr = arr.map(double);
+// console.log(doubledArr);
+
+// function tripple(x) {
+//   return x * 3;
+// }
+// let trippledArr = arr.map(tripple);
+// console.log(trippledArr);
+
+// let binaryArrr = function binary(x) {
+//   return x.toString(2);
+// };
+// let converted = arr.map(binaryArrr);
+// console.log(converted);
+
+// let binaryArr = arr.map((x) => x.toString(2));
+
+// //console.log(binaryArr);
+
+// function isOdd(x) {
+//   return x % 2;
+// }
+// let oddArr = arr.filter(isOdd);
+// console.log(oddArr);
+
+// function isEven(x) {
+//   return x % 2 === 0;
+// }
+// let evenArr = arr.filter(isEven);
+// console.log(evenArr);
+
+// let array = [5, 1, 3, 2, 6];
+
+// function findSum(arr) {
+//   let sum = 0;
+//   for (i = 0; i < arr.length; i++) {
+//     sum = sum + arr[i];
+//   }
+//   return sum;
+// }
+// console.log(findSum(array));
+
+// let sumOfElement = array.reduce(function (arr, current) {
+//   arr = arr + current;
+//   return arr;
+// }, 0);
+
+// console.log(sumOfElement);
+
+// function findMax(arr) {
+//   let max = 0;
+//   for (i = 0; i < arr.length; i++) {
+//     if (arr[i] > max) {
+//       max = arr[i];
+//     }
+//   }
+//   return max;
+// }
+// console.log(findMax(array));
+
+// let output = array.reduce(function (acc, current) {
+//   if (current > acc) {
+//     acc = current;
+//   }
+//   return acc;
+// }, 0);
+// console.log(output);
+
+const users = [
+  {
+    firstName: "Alok",
+    lastName: "Raj",
+    age: 23,
+  },
+  {
+    firstName: "Ashish",
+    lastName: "Kumar",
+    age: 29,
+  },
+  {
+    firstName: "Ankit",
+    lastName: "Roy",
+    age: 29,
+  },
+  {
+    firstName: "Pranav",
+    lastName: "Mukherjee",
+    age: 50,
+  },
+];
+
+let fullNameArr = users.map((user) => user.firstName + " " + user.lastName);
+console.log(fullNameArr);
+
+let report = users.reduce((acc, curr) => {
+  if (acc[curr.age]) {
+    acc[curr.age] = ++acc[curr.age];
+  } else {
+    acc[curr.age] = 1;
+  }
+  return acc;
+}, {});
+console.log(report);
+
+let output = users
+  .filter((user) => user.age < 30)
+  .map((user) => user.firstName);
+console.log(output);
+
+let putput = users.reduce((acc, curr) => {
+  if (curr.age < 30) {
+    acc.push(curr.firstName);
+  }
+  return acc;
+}, []);
+console.log(putput);
