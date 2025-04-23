@@ -532,51 +532,77 @@ console.log(b);
 // }, 0);
 // console.log(output);
 
-const users = [
-  {
-    firstName: "Alok",
-    lastName: "Raj",
-    age: 23,
-  },
-  {
-    firstName: "Ashish",
-    lastName: "Kumar",
-    age: 29,
-  },
-  {
-    firstName: "Ankit",
-    lastName: "Roy",
-    age: 29,
-  },
-  {
-    firstName: "Pranav",
-    lastName: "Mukherjee",
-    age: 50,
-  },
-];
+// const users = [
+//   {
+//     firstName: "Alok",
+//     lastName: "Raj",
+//     age: 23,
+//   },
+//   {
+//     firstName: "Ashish",
+//     lastName: "Kumar",
+//     age: 29,
+//   },
+//   {
+//     firstName: "Ankit",
+//     lastName: "Roy",
+//     age: 29,
+//   },
+//   {
+//     firstName: "Pranav",
+//     lastName: "Mukherjee",
+//     age: 50,
+//   },
+// ];
 
-let fullNameArr = users.map((user) => user.firstName + " " + user.lastName);
-console.log(fullNameArr);
+// let fullNameArr = users.map((user) => user.firstName + " " + user.lastName);
+// console.log(fullNameArr);
 
-let report = users.reduce((acc, curr) => {
-  if (acc[curr.age]) {
-    acc[curr.age] = ++acc[curr.age];
-  } else {
-    acc[curr.age] = 1;
-  }
-  return acc;
-}, {});
-console.log(report);
+// let report = users.reduce((acc, curr) => {
+//   if (acc[curr.age]) {
+//     acc[curr.age] = ++acc[curr.age];
+//   } else {
+//     acc[curr.age] = 1;
+//   }
+//   return acc;
+// }, {});
+// console.log(report);
 
-let output = users
-  .filter((user) => user.age < 30)
-  .map((user) => user.firstName);
-console.log(output);
+// let output = users
+//   .filter((user) => user.age < 30)
+//   .map((user) => user.firstName);
+// console.log(output);
 
-let putput = users.reduce((acc, curr) => {
-  if (curr.age < 30) {
-    acc.push(curr.firstName);
-  }
-  return acc;
-}, []);
-console.log(putput);
+// let putput = users.reduce((acc, curr) => {
+//   if (curr.age < 30) {
+//     acc.push(curr.firstName);
+//   }
+//   return acc;
+// }, []);
+// console.log(putput);
+
+//  Episode 20 : Callback
+
+// console.log("Namaste");
+// setTimeout(function () {
+//   console.log("javascript");
+// }, 5000);
+// console.log("season 2");
+
+// function downloadPhoto(photo, handlePhoto) {
+//   function handlePhoto(error, photo) {
+//     if (error) console.error("Download error!", error);
+//     else console.log("Download finished", photo);
+//   }
+
+//   console.log("Download started");
+// }
+// downloadPhoto();
+
+//  Episode 21 : Promises
+let URL = "https://api.github.com/users/alok722";
+let user = fetch(URL);
+
+user.then(function (data) {
+  console.log(data);
+});
