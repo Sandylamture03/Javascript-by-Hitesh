@@ -611,75 +611,179 @@ console.log(b);
 
 //  createOrder, proceedToPayment,  showOrderSummary, updateWallet
 
-let cart = ["shoes", "pannts", "kurta"];
+// let cart = ["shoes", "pannts", "kurta"];
 
 // Consumer part of promise
-let promise = createOrder(cart);
+// let promise = createOrder(cart);
 //console.log(promise);
 
-promise
-  .then(function (orderId) {
-    console.log(orderId);
-    return orderId;
-  })
-  .then(function (orderId) {
-    return proceedToPayment(orderId);
-  })
-  .then(function (paymentId) {
-    return showOrderSummary(paymentId);
-  })
-  .then(function (summaryId) {
-    return updateWallet(summaryId);
-  })
-  .catch(function (err) {
-    console.log(err.message);
-  });
+// promise
+//   .then(function (orderId) {
+//     console.log(orderId);
+//     return orderId;
+//   })
+//   .then(function (orderId) {
+//     return proceedToPayment(orderId);
+//   })
+//   .then(function (paymentId) {
+//     return showOrderSummary(paymentId);
+//   })
+//   .then(function (summaryId) {
+//     return updateWallet(summaryId);
+//   })
+//   .catch(function (err) {
+//     console.log(err.message);
+//   });
 
-// Producer part of Promise
-function createOrder(cart) {
-  let promise = new Promise(function (resolve, reject) {
-    if (!validateCart(cart)) {
-      let err = new Error("Cart is not Valid");
-      reject(err);
-    }
-    let orderId = 250303;
-    if (orderId) {
-      setTimeout(function () {
-        console.log(`order created for items: ${cart.join(", ")}`);
-        resolve("order ID:250303");
-      }, 1000);
-    }
-  });
-  return promise;
-}
+// // Producer part of Promise
+// function createOrder(cart) {
+//   let promise = new Promise(function (resolve, reject) {
+//     if (!validateCart(cart)) {
+//       let err = new Error("Cart is not Valid");
+//       reject(err);
+//     }
+//     let orderId = 250303;
+//     if (orderId) {
+//       setTimeout(function () {
+//         console.log(`order created for items: ${cart.join(", ")}`);
+//         resolve("order ID:250303");
+//       }, 1000);
+//     }
+//   });
+//   return promise;
+// }
 
-function proceedToPayment(orderId) {
-  return new Promise(function (resolve, reject) {
-    setTimeout(function () {
-      console.log(`payment processed for ${orderId}`);
-      resolve("payment ID: 0708");
-    }, 1000);
-  });
-}
+// function proceedToPayment(orderId) {
+//   return new Promise(function (resolve, reject) {
+//     setTimeout(function () {
+//       console.log(`payment processed for ${orderId}`);
+//       resolve("payment ID: 0708");
+//     }, 1000);
+//   });
+// }
 
-function showOrderSummary(paymentId) {
-  return new Promise(function (resolve, reject) {
-    setTimeout(function () {
-      console.log(`order summary shown for ${paymentId}`);
-      resolve("Summary ID: 789");
-    }, 1000);
-  });
-}
+// function showOrderSummary(paymentId) {
+//   return new Promise(function (resolve, reject) {
+//     setTimeout(function () {
+//       console.log(`order summary shown for ${paymentId}`);
+//       resolve("Summary ID: 789");
+//     }, 1000);
+//   });
+// }
 
-function updateWallet(summaryId) {
-  return new Promise(function (resolve, reject) {
-    setTimeout(function () {
-      console.log(`wallet updated with ${summaryId}`);
-      resolve("wallet updated");
-    }, 1000);
-  });
-}
+// function updateWallet(summaryId) {
+//   return new Promise(function (resolve, reject) {
+//     setTimeout(function () {
+//       console.log(`wallet updated with ${summaryId}`);
+//       resolve("wallet updated");
+//     }, 1000);
+//   });
+// }
 
-function validateCart(cart) {
-  return true;
-}
+// function validateCart(cart) {
+//   return true;
+// }
+
+//Episode 23 : async await
+
+// async function getData() {
+//   return "Namaste Javascript";
+// }
+
+// let promseData = getData();
+// console.log(promseData);
+// promseData.then((res) => console.log(res));
+
+// let p = new Promise(function (resolve, reject) {
+//   resolve("promse resolved value!!");
+// });
+
+// async function getData() {
+//   return p;
+// }
+// let dataPromise = getData();
+// console.log(dataPromise);
+
+// dataPromise.then((res) => console.log(res));
+
+// let p = new Promise(function (resolve, reject) {
+//   resolve("promise resolved value!!");
+// });
+
+// function getData() {
+//   p.then((res) => console.log(res));
+// }
+// getData();
+
+// async function handledPromise() {
+//   let val = await p;
+//   console.log(val);
+// }
+// handledPromise();
+
+// let p = new Promise(function (resolve, reject) {
+//   setTimeout(function () {
+//     resolve("Promise value resolved !!");
+//   }, 20000);
+// });
+
+// let p2 = new Promise(function (resolve, reject) {
+//   setTimeout(() => {
+//     resolve("Prmose resolved valuse 2 !!");
+//   }, 30000);
+// });
+
+// function getData() {
+//   p.then((res) => console.log(res));
+//   console.log("hello Baby");
+// }
+// getData();
+
+// async function handledPromise() {
+//   console.log("hello G");
+
+//   let val = await p;
+//   console.log("hellow Beb");
+
+//   console.log(val);
+//   let val2 = await p;
+//   console.log("hello there !!");
+//   console.log(val2);
+// }
+// handledPromise();
+
+// async function promiseHandle() {
+//   console.log("Hii");
+//   debugger;
+//   let val = await p;
+//   console.log("Hello There !!");
+//   debugger;
+//   console.log(val);
+
+//   let val2 = await p2;
+//   console.log("Hello There 2 !!");
+//   debugger;
+//   console.log(val2);
+// }
+// promiseHandle();
+
+// async function handledPromise() {
+//   let data = await fetch("https://api.github.com/users/alok722");
+//   let res = await data.json();
+//   console.log(res);
+// }
+// handledPromise();
+
+// async function handlePromise() {
+//   try {
+//     let data = await fetch("https://api.github.com/users/alok722");
+//     let res = await data.json();
+//     console.log(res);
+//   } catch (error) {
+//     //let err = new Error(error);
+//     console.log(error);
+//   }
+// }
+// handlePromise();
+
+//   Episode 24 : Promise APIs (all, allSettled, race, any) +Interview Questions
