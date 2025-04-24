@@ -600,9 +600,86 @@ console.log(b);
 // downloadPhoto();
 
 //  Episode 21 : Promises
-let URL = "https://api.github.com/users/alok722";
-let user = fetch(URL);
+// let URL = "https://api.github.com/users/alok722";
+// let user = fetch(URL);
 
-user.then(function (data) {
-  console.log(data);
-});
+// user.then(function (data) {
+//   console.log(data);
+// });
+
+//   Episode 22 : Creating a Promise, Chaining & ErrorHandling
+
+//  createOrder, proceedToPayment,  showOrderSummary, updateWallet
+
+let cart = ["shoes", "pannts", "kurta"];
+
+// Consumer part of promise
+let promise = createOrder(cart);
+//console.log(promise);
+
+promise
+  .then(function (orderId) {
+    console.log(orderId);
+    return orderId;
+  })
+  .then(function (orderId) {
+    return proceedToPayment(orderId);
+  })
+  .then(function (paymentId) {
+    return showOrderSummary(paymentId);
+  })
+  .then(function (summaryId) {
+    return updateWallet(summaryId);
+  })
+  .catch(function (err) {
+    console.log(err.message);
+  });
+
+// Producer part of Promise
+function createOrder(cart) {
+  let promise = new Promise(function (resolve, reject) {
+    if (!validateCart(cart)) {
+      let err = new Error("Cart is not Valid");
+      reject(err);
+    }
+    let orderId = 250303;
+    if (orderId) {
+      setTimeout(function () {
+        console.log(`order created for items: ${cart.join(", ")}`);
+        resolve("order ID:250303");
+      }, 1000);
+    }
+  });
+  return promise;
+}
+
+function proceedToPayment(orderId) {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      console.log(`payment processed for ${orderId}`);
+      resolve("payment ID: 0708");
+    }, 1000);
+  });
+}
+
+function showOrderSummary(paymentId) {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      console.log(`order summary shown for ${paymentId}`);
+      resolve("Summary ID: 789");
+    }, 1000);
+  });
+}
+
+function updateWallet(summaryId) {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      console.log(`wallet updated with ${summaryId}`);
+      resolve("wallet updated");
+    }, 1000);
+  });
+}
+
+function validateCart(cart) {
+  return true;
+}
