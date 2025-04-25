@@ -787,3 +787,31 @@ console.log(b);
 // handlePromise();
 
 //   Episode 24 : Promise APIs (all, allSettled, race, any) +Interview Questions
+
+let p1 = new Promise(function (resolve, reject) {
+  setTimeout(() => {
+    //resolve("p1 success");
+    reject("p1 rejected");
+  }, 3000);
+});
+
+let p2 = new Promise(function (resolve, reject) {
+  setTimeout(() => {
+    //resolve("P2 success");
+    reject("p2 failed");
+  }, 5000);
+});
+
+let p3 = new Promise(function (resolve, reject) {
+  setTimeout(() => {
+    //resolve("P3 success");
+    reject("p3 failed");
+  }, 2000);
+});
+
+Promise.any([p1, p2, p3])
+  .then((res) => console.log(res))
+  .catch((err) => {
+    console.error(err);
+    console.log(err.errors);
+  });
