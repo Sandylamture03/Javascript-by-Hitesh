@@ -788,30 +788,180 @@ console.log(b);
 
 //   Episode 24 : Promise APIs (all, allSettled, race, any) +Interview Questions
 
-let p1 = new Promise(function (resolve, reject) {
-  setTimeout(() => {
-    //resolve("p1 success");
-    reject("p1 rejected");
-  }, 3000);
-});
+// let p1 = new Promise(function (resolve, reject) {
+//   setTimeout(() => {
+//     //resolve("p1 success");
+//     reject("p1 rejected");
+//   }, 3000);
+// });
 
-let p2 = new Promise(function (resolve, reject) {
-  setTimeout(() => {
-    //resolve("P2 success");
-    reject("p2 failed");
-  }, 5000);
-});
+// let p2 = new Promise(function (resolve, reject) {
+//   setTimeout(() => {
+//     //resolve("P2 success");
+//     reject("p2 failed");
+//   }, 5000);
+// });
 
-let p3 = new Promise(function (resolve, reject) {
-  setTimeout(() => {
-    //resolve("P3 success");
-    reject("p3 failed");
-  }, 2000);
-});
+// let p3 = new Promise(function (resolve, reject) {
+//   setTimeout(() => {
+//     //resolve("P3 success");
+//     reject("p3 failed");
+//   }, 2000);
+// });
 
-Promise.any([p1, p2, p3])
-  .then((res) => console.log(res))
-  .catch((err) => {
-    console.error(err);
-    console.log(err.errors);
-  });
+// Promise.any([p1, p2, p3])
+//   .then((res) => console.log(res))
+//   .catch((err) => {
+//     console.error(err);
+//     console.log(err.errors);
+//   });
+
+//console.log(this);
+//"use strict";
+// function x() {
+//   console.log(this);
+// }
+// //x();
+// //window.x();
+
+// let obje = {
+//   a: 20,
+//   x: function functionName() {
+//     console.log(this);
+//     console.log(this.a);
+//   },
+// };
+// //obj.x();
+
+// let student = {
+//   name: "sandeep",
+//   printName: function () {
+//     console.log(this.name);
+//   },
+// };
+// //student.printName();
+
+// let student2 = {
+//   name: "Pooonam",
+// };
+
+// //student.printName.call(student2);
+
+// let obj = {
+//   a: 20,
+//   x: () => {
+//     console.log(this);
+//   },
+// };
+// obj.x();
+
+// let obj2 = {
+//   a: 30,
+//   b: function () {
+//     let y = () => {
+//       console.log(this);
+//     };
+//     y();
+//   },
+// };
+// obj2.b();
+
+let name = {
+  firstName: "sandeep",
+  lastName: "Lamture",
+};
+let printFullName = function (hometown, state) {
+  console.log(
+    this.firstName +
+      " " +
+      this.lastName +
+      " " +
+      "from" +
+      " " +
+      hometown +
+      " " +
+      "," +
+      state
+  );
+};
+
+printFullName.call(name, "Ambajogai", "Maharashtra");
+
+let name2 = {
+  firstName: "Poonam",
+  lastName: "Lamture",
+};
+
+printFullName.call(name2, "Washim", "India");
+
+printFullName.apply(name2, ["Washim", "India"]);
+
+let myName = printFullName.bind(name, "Ambajogai", "Maharashtra");
+myName();
+
+let x = 100;
+let y = x++;
+let z = ++x;
+let n = x == y ? z++ : ++z;
+console.log(n);
+
+let f = new Boolean(false);
+if (f) {
+  console.log(1);
+} else {
+  console.log(2);
+}
+console.log(typeof f);
+
+let obj = { x: 1, y: 2 };
+let { x: a, y: b } = obj;
+a = 2;
+console.log(obj.x, obj.y);
+
+let elf = "Estel";
+function lapland(params) {
+  let elf = "Arwen";
+  console.log(elf);
+}
+lapland();
+
+let foo = function () {
+  console.log(1);
+};
+setTimeout(foo, 1000);
+foo = function () {
+  console.log(2);
+};
+
+console.log("9" > "19");
+console.log("09" > "19");
+
+// let multiply = function (x, y) {
+//   console.log(x * y);
+// };
+
+// let multiplyByTwo = multiply.bind(this, 2);
+// multiplyByTwo(6);
+
+// let multiplyByThree = multiply.bind(this, 10, 10);
+// multiplyByThree(8);
+
+// let multi = function (x) {
+//   return function (y) {
+//     console.log(x * y);
+//   };
+// };
+
+// let multiplyByTwo = multi(4);
+// multiplyByTwo(4);
+
+function multiply(x, y) {
+  return x * y;
+}
+
+// Create a curried version that multiplies by 2
+const multiplyByTwo = multiply.bind(this, 2);
+console.log(this.x);
+
+// Now we can call it with just one argument
+console.log(multiplyByTwo(4)); // Output: 8
